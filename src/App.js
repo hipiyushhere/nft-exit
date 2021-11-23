@@ -55,7 +55,7 @@ const App = () => {
     try {
       const base_url = 'https://apis.matic.network/api/v1/matic/exit-payload';
       const posSignature = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
-      const plasmaSignature = '0xebff2602b3f468259e1e99f613fed6691f3a6526effe6ef3e768ba7ae7a36c4f';
+      const plasmaSignature = '0xf871896b17e9cb7a64941c62c188a4f5c621b86800e3d15452ece01ce56073df';
       const url = `${base_url}/${inputValue}?eventSignature=${type === 'pos' ? posSignature : plasmaSignature}`
       let { data } = await axios.get(url);
       console.log(data);
@@ -256,14 +256,14 @@ const App = () => {
         </div>
 
         <div style={{ display: 'flex', maxWidth: 150, margin: '0 auto 20px auto', alignContent: 'center' }}>
-          <p>POS</p>
+          <p>NFT</p>
           <Switch
             checked={isPlasma}
             onChange={(e) => setIsPlasma(e.target.checked)}
             color="primary"
             inputProps={{ 'aria-label': 'primary checkbox' }}
           />
-          <p>Plasma</p>
+          <p>BatchNFT</p>
         </div>
 
         <button className={classes.btn} onClick={isPlasma ? withdrawPlasmaERC20 : exitERC20}
